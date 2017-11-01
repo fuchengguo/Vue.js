@@ -1,15 +1,13 @@
 new Vue({
 	el: "#demo",
 	data: {
-		search: "abc",
-		num: 1000,
+		name: "qd"
 	},
-	computed: {
-		searched: function() {
-			return "cba"
-		},
-		numed: function() {
-			return '$' + this.num
+	//监听数据模型
+	watch: {
+		name: function(value, oldValue) {
+			console.log(value)
+			console.log(oldValue)
 		}
 	}
 })
