@@ -7,7 +7,7 @@
 	<body>
 		<div id="demo">
 			<p style="color: red;">1.currency</p>
-			<p>{{num|currency}}</p>
+			<p>{{num|currency '￥' 0}}</p>
 			<p style="color: red;">2.debounce</p>
 			<!--延时过滤器-->
 			<button @click="test|debounce 3000">OK</button>
