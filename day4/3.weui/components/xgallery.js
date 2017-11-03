@@ -1,6 +1,7 @@
 Vue.component("xgallery",{
 	template:`
-		<div class="weui-gallery" :style="{display:bool?'block':'none'}">
+	<transition name="fade">
+		<div class="weui-gallery" v-show="bool">
 	        <span class="weui-gallery__img" :style="{'backgroundImage': 'url('+url+')'}"></span>
 	        <div class="weui-gallery__opr">
 	            <a @click="hideGallery" href="javascript:" class="weui-gallery__del">
@@ -8,6 +9,7 @@ Vue.component("xgallery",{
 	            </a>
 	        </div>
     	</div>
+    </transition>
 	`,
 	data:function(){
 		return {
