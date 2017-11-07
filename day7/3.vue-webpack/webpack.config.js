@@ -26,6 +26,21 @@ module.exports = {
 		}, {
 			test: /\.css$/,
 			use: ['style-loader', 'css-loader']
+		}, {
+			test: /\.vue$/,
+			use: 'vue-loader'
+		}, {
+			test: /\.scss$/,
+			use: 'sass-loader'
+		}, {
+			test: /\.ejs$/,
+			use: 'ejs-loader'
+		}, {
+			test: /\.jade$/,
+			use: 'jade-loader'
+		}, {
+			test: /\.ts$/,
+			use: 'ts-loader'
 		}]
 	},
 	resolve: {

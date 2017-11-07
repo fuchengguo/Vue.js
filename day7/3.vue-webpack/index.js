@@ -1,25 +1,42 @@
-var Vue = require("vue");
-require("./resource/css/base.css")
+import Vue from "vue"
+import Vuex from "vuex"
+import VueRouter from "vue-router"
+import $ from "jquery"
+//window.$ = $
+import "./resource/css/base.css"
+Vue.use(Vuex)
+Vue.use(VueRouter)
+//引入组件
+import xheader from "./components/xheader.vue"
+//var xheader = require("./components/xheader.vue")
+let router = new VueRouter({
+	routes:[{
+		path:"/index",
+		component:xheader
+	}]
+})
+let store = new Vuex.Store({
+	state:{
+		title:"vue-webpack"
+	}
+})
+
 new Vue({
-	el:"#app",
-	data:{
-		name:"qd",
+	el: "#app",
+	store,
+	router,
+	data: {
+		name: "qd",
 		//txt
-		txt:require("./resource/txt/data.txt"),
-		html:require("./resource/html/index.html"),
-		img:require("./resource/images/1.jpg"),
-		
+		txt: require("./resource/txt/data.txt"),
+		html: require("./resource/html/index.html"),
+		img: require("./resource/images/1.jpg"),
+
 	},
-	template:`
-		<div>
-			<p class="title">txt类型文件</p>
-			<p>{{txt}}</p>
-			
-			<p class="title">html类型文件</p>
-			<div v-html="html"></div>
-			
-			<p class="title">img类型文件</p>
-			<img :src="img" />
-		</div>
-	`
+	template: `
+		<router-view></router-view>
+	`,
+	components: {
+		xheader
+	}
 })
