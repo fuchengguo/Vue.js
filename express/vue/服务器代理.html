@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jquery.js"></script>
+		<script>
+			$.ajax({
+				type:"GET",
+				url:"http://localhost:8888/index",
+				success:function(data){
+					console.log(JSON.parse(data))
+				}
+			})
+		</script>
+	</body>
+</html>

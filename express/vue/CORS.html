@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script src="vue.js"></script>
+		<script src="jquery.js"></script>
+		<script>
+			new Vue({
+				el: "#demo",
+				data: {
+					html: ""
+				},
+				template:`
+					<div>
+						<div v-html="html"></div>
+					</div>
+				`,
+				mounted: function() {
+					var self = this;
+					$.ajax({
+						url: "http://localhost:8888/gettitle",
+						type: "GET",
+						success: function(data) {
+							console.log(data)
+							self.html = data
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+
+</html>
